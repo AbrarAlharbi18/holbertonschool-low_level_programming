@@ -6,6 +6,8 @@
  * main - Entry point of the program.
  * Description: This function generates a random number and
  * prints whether the number is positive, negative, or zero.
+ *
+ * Return: Always 0 (Success).
  */
 int main(void)
 {
