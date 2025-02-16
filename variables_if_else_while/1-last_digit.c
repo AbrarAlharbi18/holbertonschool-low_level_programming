@@ -2,6 +2,16 @@
 #include <stdlib.h>
 #include <time.h>
 
+/**
+ * main - Entry point of the program
+ *`
+ * Description: This program generates a random number,
+ * calculates its last digit, and prints whether the
+ * last digit is greater than 5, equal to 0, or less than 6
+ * and not equal to 0.
+ *
+ * Return: Always 0 (Success)
+ */
 int main(void)
 {
 	int n;
