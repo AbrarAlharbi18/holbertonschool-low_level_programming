@@ -8,11 +8,10 @@
 void print_alphabet(void)
 {
 	char alphabet[] = "abcdefghijklmnopqrstuvwxyz\n";
+	int i = 2;
 
 	_putchar(alphabet[0]);
 	_putchar(alphabet[1]);
-
-	int i = 2;
 
 	while (alphabet[i] != '\0')
 	{
