@@ -19,7 +19,7 @@ void times_table(void)
 				_putchar(' ');
 			}
 
-			if (product < 10)
+			if (product < 10 && col != 0)
 			{
 				_putchar(' ');
 			}
