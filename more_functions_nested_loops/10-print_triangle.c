@@ -6,19 +6,21 @@
  */
 void print_triangle(int size)
 {
+	int i, j;
+
 	if (size <= 0)
 	{
 		_putchar('\n');
 	}
 	else
 	{
-		for (int i = 1; i <= size; i++) /* For each row */
+		for (i = 1; i <= size; i++) /* For each row */
 		{
-			for (int j = 1; j <= size - i; j++) /* Print spaces */
+			for (j = 1; j <= size - i; j++) /* Print spaces */
 			{
 				_putchar(' ');
 			}
-			for (int j = 1; j <= i; j++) /* Print hashes */
+			for (j = 1; j <= i; j++) /* Print hashes */
 			{
 				_putchar('#');
 			}
