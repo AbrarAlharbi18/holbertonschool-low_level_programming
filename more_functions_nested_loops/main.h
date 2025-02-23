@@ -1,7 +1,7 @@
 #ifndef MAIN_H
 #define MAIN_H
 
-int _putchar(char c);          /* Prototype for _putchar function */
-void more_numbers(void);       /* Prototype for more_numbers function */
+int _putchar(char c);
+void print_line(int n);
 
 #endif /* MAIN_H */
