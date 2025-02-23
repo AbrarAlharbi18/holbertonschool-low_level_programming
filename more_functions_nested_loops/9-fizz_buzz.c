@@ -1,12 +1,21 @@
 #include "main.h"
 
 /**
- * main - prints numbers from 1 to 100, but for multiples of 3 prints Fizz,
- * for multiples of 5 prints Buzz, and for multiples of both prints FizzBuzz.
+ * main - Entry point to the program
  *
- * Return: Always 0.
+ * Return: Always 0
  */
 int main(void)
+{
+	fizz_buzz();
+	return (0);
+}
+
+/**
+ * fizz_buzz - prints numbers 1 to 100 with "Fizz", "Buzz", or "FizzBuzz"
+ * based on the conditions.
+ */
+void fizz_buzz(void)
 {
 	int i;
 
@@ -20,6 +29,7 @@ int main(void)
 			_putchar('z');
 			_putchar('B');
 			_putchar('u');
+			_putchar('z');
 			_putchar('z');
 		}
 		else if (i % 3 == 0)
@@ -41,9 +51,8 @@ int main(void)
 			_putchar(i + '0');
 		}
 
-		if (i != 100)
-			_putchar(' ');
+		_putchar(' ');  /* Print space between numbers and words */
 	}
-	_putchar('\n');
-	return (0);
+
+	_putchar('\n');  /* Print newline at the end */
 }
