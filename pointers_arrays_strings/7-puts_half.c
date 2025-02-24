@@ -20,7 +20,7 @@ void puts_half(char *str)
 	}
 	else
 	{
-		i = (len - 1) / 2;
+		i = (len + 1) / 2;	/* Start at the next character if the length is odd */
 	}
 
 	for (; str[i] != '\0'; i++)
