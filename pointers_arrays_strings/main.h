@@ -1,6 +1,6 @@
 #ifndef MAIN_H
 #define MAIN_H
 
-char *leet(char *str);
+char *cap_string(char *str);
 
 #endif /* MAIN_H */

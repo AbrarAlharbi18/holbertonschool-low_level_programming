@@ -1,7 +1,8 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
- * main - check the code
+ * main - Entry point of the program.
  *
  * Return: Always 0.
  */
@@ -12,6 +13,6 @@ int main(void)
 
     ptr = cap_string(str);
     printf("%s", ptr); /* Print the modified string */
-    printf("%s", str);  /* Print the modified string again */
+    printf("%s", str); /* Print the original string (modified in place) */
     return (0);
 }
