@@ -21,8 +21,11 @@ char *cap_string(char *str)
 		else if (str[i] == ' ' || str[i] == '\t' || str[i] == '\n' ||
 				str[i] == ',' || str[i] == ';' || str[i] == '.' ||
 				str[i] == '!' || str[i] == '?' || str[i] == '\"' ||
-				str[i] == '(' || str[i] == ')' || str[i] == '{' ||
-				str[i] == '}')
+				str[i] == '(' || str[i] == ')')
+		{
+			capitalize = 1; /* next letter should be capitalized */
+		}
+		else if (str[i] == '{' || str[i] == '}')
 		{
 			capitalize = 1; /* next letter should be capitalized */
 		}
