@@ -2,22 +2,24 @@
 #include <stdio.h>
 
 /**
- * main - check the code for _strcat function
+ * main - Test _memset function
  *
  * Return: Always 0.
  */
 int main(void)
 {
-    char s1[98] = "Hello ";
-    char s2[] = "World!\n";
-    char *ptr;
+    char buffer[20];
+    int i;
 
-    printf("%s\n", s1);
-    printf("%s", s2);
-    ptr = _strcat(s1, s2);
-    printf("%s", s1);
-    printf("%s", s2);
-    printf("%s", ptr);
+    _memset(buffer, 'A', 10);
+    _memset(buffer + 10, 'B', 5);
+    _memset(buffer + 15, 'C', 5);
+
+    for (i = 0; i < 20; i++)
+    {
+        printf("%c ", buffer[i]);
+    }
+    printf("\n");
 
     return (0);
 }
