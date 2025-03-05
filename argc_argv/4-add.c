@@ -3,28 +3,30 @@
 #include <ctype.h>
 
 /**
- * main - Adds positive numbers passed as arguments
- * @argc: The number of command line arguments
- * @argv: The array of command line arguments
+ * main - Adds positive numbers
+ * @argc: The number of arguments
+ * @argv: The array of arguments
  *
- * Return: 0 if successful, 1 if there are errors (e.g., invalid number)
+ * Return: 0 if successful, 1 if there's an error
  */
 int main(int argc, char *argv[])
 {
-	int i, num, sum = 0;
+	int i;
+	int j;  /* Declare j outside the for loop */
+	int sum = 0;
 
-	/* Check if no numbers are passed */
+	/* Check if no arguments are passed */
 	if (argc == 1)
 	{
 		printf("0\n");
 		return (0);
 	}
 
-	/* Iterate through arguments and sum the numbers */
+	/* Iterate through all arguments */
 	for (i = 1; i < argc; i++)
 	{
-		/* Check if the argument is a valid number */
-		for (int j = 0; argv[i][j] != '\0'; j++)
+		/* Check if argument is a valid number */
+		for (j = 0; argv[i][j] != '\0'; j++)
 		{
 			if (!isdigit(argv[i][j]))
 			{
@@ -32,13 +34,11 @@ int main(int argc, char *argv[])
 				return (1);
 			}
 		}
-
-		/* Convert argument to integer and add to sum */
-		num = atoi(argv[i]);
-		sum += num;
+		/* Add the number to the sum */
+		sum += atoi(argv[i]);
 	}
 
-	/* Print the sum */
+	/* Print the result */
 	printf("%d\n", sum);
 	return (0);
 }
