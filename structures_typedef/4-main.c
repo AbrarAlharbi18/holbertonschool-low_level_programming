@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <stdlib.h> /* For free */
+#include <stdlib.h>
 #include "dog.h"
 
 /**
@@ -11,8 +11,8 @@ int main(void)
 {
 	dog_t *my_dog;
 
-	my_dog = new_dog("Poppy", 3.5, "Bob");
-	printf("Myes %s, nd I am %.1f :) - Woof!\n", my_dog->name, my_dog->age);
+	my_dog = new_dog("Ghost", 4.75, "Jon Snow");
+	printf("Mmeis %s,Iam %.2f, and my owner is %s\n", my_dog->name, my_dog->age, my_dog->owner);
 	free(my_dog->name);
 	free(my_dog->owner);
 	free(my_dog);
