@@ -2,6 +2,7 @@
 #define DOG_H
 
 #include <stddef.h> /* For NULL */
+#include <stdlib.h> /* For malloc and free */
 
 /**
  * struct dog - A structure representing a dog.
@@ -26,5 +27,8 @@ void init_dog(struct dog *d, char *name, float age, char *owner);
 
 /* Function prototype for print_dog */
 void print_dog(struct dog *d);
+
+/* Function prototype for new_dog */
+dog_t *new_dog(char *name, float age, char *owner);
 
 #endif /* DOG_H */
