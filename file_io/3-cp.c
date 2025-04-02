@@ -23,25 +23,25 @@ void handle_error(int code, const char *msg, const char *arg, int fd)
  * copy_file - Copies content from one file to another
  * @fd_from: Source file descriptor
  * @fd_to: Destination file descriptor
- * @filename: Destination filename for error messages
+ * @from_name: Source filename for error messages
+ * @to_name: Destination filename for error messages
  */
-void copy_file(int fd_from, int fd_to, const char *filename)
+void copy_file(int fd_from, int fd_to, const char *from_name,
+const char *to_name)
 {
 	char buffer[BUF_SIZE];
 	ssize_t read_bytes, write_bytes;
 
-	while ((read_bytes = read(fd_from, buffer, BUF_SIZE)) > 0)
+	while (1)
 	{
+		read_bytes = read(fd_from, buffer, BUF_SIZE);
+		if (read_bytes == -1)
+			handle_error(98, "Error: Can't read from file %s\n", from_name, fd_to);
+		if (read_bytes == 0)
+			break;
 		write_bytes = write(fd_to, buffer, read_bytes);
 		if (write_bytes != read_bytes)
-		{
-			handle_error(99, "Error: Can't write to %s\n", filename, -1);
-		}
-	}
-
-	if (read_bytes == -1)
-	{
-		handle_error(98, "Error: Can't read from file %s\n", filename, -1);
+			handle_error(99, "Error: Can't write to %s\n", to_name, -1);
 	}
 }
 
@@ -64,27 +64,19 @@ int main(int argc, char **argv)
 
 	fd_from = open(argv[1], O_RDONLY);
 	if (fd_from == -1)
-	{
 		handle_error(98, "Error: Can't read from file %s\n", argv[1], -1);
-	}
 
 	fd_to = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, permissions);
 	if (fd_to == -1)
-	{
 		handle_error(99, "Error: Can't write to %s\n", argv[2], fd_from);
-	}
 
-	copy_file(fd_from, fd_to, argv[1]);
+	copy_file(fd_from, fd_to, argv[1], argv[2]);
 
 	if (close(fd_from) == -1)
-	{
 		handle_error(100, "Error: Can't close fd %d\n", NULL, fd_to);
-	}
 
 	if (close(fd_to) == -1)
-	{
 		handle_error(100, "Error: Can't close fd %d\n", NULL, -1);
-	}
 
 	return (0);
 }
